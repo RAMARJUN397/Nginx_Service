@@ -1,0 +1,21 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: myapp
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: myapp
+  template:
+    metadata:
+      labels:
+        app: myapp
+    spec:
+      containers:
+        - name: myapp
+          image: sarangarao/sxb-react-frontend:v1
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 80
+      restartPolicy: Always
